@@ -1,3 +1,4 @@
+from utils.models import Issue
 from . import choice
 
 
@@ -6,6 +7,7 @@ def run(gh=None):
     steps:
         - Ask for users or organization
         - Ask for repositories seleciton
+        - Add one issue
     """
 
     type = choice.askType(gh)
@@ -15,4 +17,7 @@ def run(gh=None):
 
     repository = choice.askRepository(organization if organization else user)
 
-    print(repository)
+    issue = Issue('Title', 'Freyskeyd', 'content')
+
+    issue.add_to_repository(repository)
+
