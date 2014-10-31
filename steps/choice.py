@@ -1,4 +1,23 @@
 
+def askOrganization(ep, type):
+    """
+    Propose user's organization
+    """
+
+    organization = None
+
+    if type is 'organization':
+        orgs_login = []
+
+        for org in ep.get_orgs():
+            print(org.login)
+            orgs_login.append(org.login.lower())
+
+        while organization not in orgs_login:
+            organization = input('>> ').lower()
+
+    return organization
+
 
 def askType(gh):
     """
@@ -6,11 +25,11 @@ def askType(gh):
     """
 
     print('Do you want to import issue for your personal profil or an \
-organisation ?')
+organization ?')
 
     type = None
 
-    options = ['p', 'personal', 'o', 'orga', 'organisation']
+    options = ['p', 'personal', 'o', 'orga', 'organization']
 
     while type not in options:
         type = input('>> ').lower()
@@ -18,5 +37,6 @@ organisation ?')
     if type in ['p', 'personal']:
         type = 'user'
     else:
-        type = 'organisation'
+        type = 'organization'
+
     return type

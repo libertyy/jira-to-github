@@ -19,6 +19,7 @@ if len(sys.argv) > 1:
 
     # start steps
     loader.run(github=github)
+
     # for issue in root.iter('item'):
     #     print(issue.find('title').text)
 else:
