@@ -56,8 +56,8 @@ def askType(gh):
     Ask for interaction source type
     """
 
-    print('Do you want to import issue for your personal profil or an \
-organization ?')
+    print('Do you want to import issue for your (p)ersonal profil or an \
+(o)rganization ?')
 
     type = None
 
