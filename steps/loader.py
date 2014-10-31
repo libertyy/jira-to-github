@@ -11,4 +11,8 @@ def run(gh=None):
     type = choice.askType(gh)
     user = gh.get_user()
 
-    organization = choice.askOrganisation(user, type)
+    organization = choice.askOrganization(user, type)
+
+    repository = choice.askRepository(organization if organization else user)
+
+    print(repository)
