@@ -1,3 +1,5 @@
+##
+Current: 1.0.0
 ## How to use
 
 First you need to generate an `ACCESS_TOKEN` in your personal profil.
