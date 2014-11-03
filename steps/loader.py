@@ -1,8 +1,8 @@
-from utils.models import Issue
 from . import choice
+from utils import collector
 
 
-def run(gh=None):
+def run(gh=None, xml=None):
     """
     steps:
         - Ask for users or organization
@@ -15,9 +15,11 @@ def run(gh=None):
 
     organization = choice.askOrganization(user, type)
 
-    repository = choice.askRepository(organization if organization else user)
+    source = organization if organization else user
 
-    issue = Issue('Title', 'Freyskeyd', 'content')
+    repository = choice.askRepository(source)
 
-    issue.add_to_repository(repository)
+    issues = collector.issues(xml.iter('item'))
 
+    for i in issues:
+        i.add_to_repository(repository)

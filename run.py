@@ -18,7 +18,7 @@ if len(sys.argv) > 1:
     authors = collector.authors(root.iter('item'))
 
     # start steps
-    loader.run(gh=github)
+    loader.run(gh=github, xml=root)
 
     # for issue in root.iter('item'):
     #     print(issue.find('title').text)
